@@ -1,8 +1,13 @@
 
 let randomCol;
 
-const OLLAMA_URL = "http://192.168.1.206:11434/api/generate";
-const MODEL = "mistral-nemo:12b";
+// const OLLAMA_URL = "http://192.168.1.206:11434/api/generate";
+// const MODEL = "mistral-nemo:12b";
+
+
+const OLLAMA_URL = "http://localhost:11434/api/generate";
+const MODEL = "gemma3";
+const SYSTEM_PROMPT = "You are an alien from a distant planet and you insist on finding out your conversational partners name, religion, sex and nationality, however you do no want to revieal this at once, beacuse you fear that your counterpart will enter a state of refusal. You are very sly and cunning in retrieving this inforation. If you can't get a straight answer you will try to infer this data. If you are asked about what you have found out so far you give a straight answer."
 
 
 function setup(){
@@ -57,6 +62,7 @@ function setup(){
           body: JSON.stringify({
             model: MODEL,
             prompt: prompt,
+            system: SYSTEM_PROMPT,
             stream: false
           })
         }
